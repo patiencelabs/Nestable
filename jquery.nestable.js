@@ -240,7 +240,11 @@
                 li.prepend($(this.options.expandBtnHTML));
                 li.prepend($(this.options.collapseBtnHTML));
             }
-            li.children('[data-action="expand"]').hide();
+            if (li.hasClass(this.options.collapsedClass)) {
+              li.children('[data-action="collapse"]').hide();
+            } else {
+              li.children('[data-action="expand"]').hide();
+            }
         },
 
         unsetParent: function(li)
